@@ -1,5 +1,5 @@
 # 📐 Matemática em Movimento — Aula 08: Pitágoras e Relações Métricas
-> Plataforma de Apresentação de Slides Interativos para Aula Online (9º Ano)
+> Plataforma de Apresentação de Slides Interativos para Aula Online (1º Ano)
 
 Projeto interativo completo pronto para rodar e usar em sala de aula ou chamada de vídeo (Google Meet, Microsoft Teams, Zoom). Focado na BNCC (**EF09MA14** e **EF09MA13**), com recursos pedagógicos em tempo real para engajamento dos alunos pelo chat.
 

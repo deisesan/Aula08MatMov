@@ -95,7 +95,7 @@ export default function Slide10ClosingHomework() {
             </div>
             <h3 className="text-lg font-bold text-white">Envio no Canal Oficial</h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Tirem foto legível da resolução no caderno e enviem pelo canal oficial da turma para garantir os <strong>20 pontos de lição de casa</strong> do MatMov!
+              Tirem foto legível da resolução no caderno e enviem a solução junto com o exercício no moodle!
             </p>
           </div>
         </div>
@@ -175,7 +175,7 @@ export default function Slide10ClosingHomework() {
         </div>
 
         <div className="text-xs text-indigo-400 font-semibold">
-          Parabéns pelo show de participação hoje, 9º Ano! Até a próxima aula! 👋
+          Parabéns pelo show de participação hoje, 1º Ano! Até a próxima aula! 👋
         </div>
       </div>
     </div>

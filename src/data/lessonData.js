@@ -1,7 +1,7 @@
 export const LESSON_INFO = {
   title: "Matemática em Movimento — Aula 08",
   subtitle: "Triângulos: Teorema de Pitágoras e Relações Métricas (Capítulo 6)",
-  grade: "9º Ano (EF09MA14 e EF09MA13)",
+  grade: "1º Ano (EF09MA14 e EF09MA13)",
   scheduleTime: "09:30 às 11:30",
   totalDuration: "2h00 (120 min)",
 };

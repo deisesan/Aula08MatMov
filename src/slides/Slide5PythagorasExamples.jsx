@@ -266,7 +266,7 @@ export default function Slide5PythagorasExamples() {
                         : 'bg-slate-800 text-slate-300'
                     }`}
                   >
-                    10 m (Escada) ⭐
+                    10 m (Escada)
                   </button>
                   <button
                     onClick={() => handleLadderVote('6')}
@@ -289,7 +289,7 @@ export default function Slide5PythagorasExamples() {
                   Enunciado 2:
                 </h3>
                 <p className="text-slate-200 text-sm">
-                  Uma escada de <strong className="text-amber-400">10 metros</strong> está apoiada em uma parede. A base da escada dista <strong className="text-indigo-400">6 metros</strong> da parede. Qual é a altura <strong className="text-rose-400">h</strong> alcançada pela escada?
+                  Uma escada de <strong className="text-amber-400">10 metros</strong> está apoiada em uma parede. A base da escada distante <strong className="text-indigo-400">6 metros</strong> da parede. Qual é a altura <strong className="text-rose-400">h</strong> alcançada pela escada?
                 </p>
               </div>
 

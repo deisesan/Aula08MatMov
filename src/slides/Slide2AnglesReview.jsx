@@ -169,9 +169,6 @@ export default function Slide2AnglesReview() {
                 <HelpCircle className="w-5 h-5 text-amber-400" />
                 <h3 className="font-bold text-white text-base">Pergunta Relâmpago para o Chat:</h3>
               </div>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
-                Valendo participação
-              </span>
             </div>
 
             <p className="text-slate-200 text-sm sm:text-base font-semibold mb-4 bg-slate-950/50 p-3 rounded-xl border border-slate-800">

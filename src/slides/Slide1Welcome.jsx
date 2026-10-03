@@ -3,8 +3,8 @@ import { Sparkles, MessageCircle, BookOpen, CheckCircle, Flame, Heart, Compass }
 import { sounds } from '../utils/audio';
 
 export default function Slide1Welcome() {
-  const [reactions, setReactions] = useState({ bomDia: 0, prontos: 0 });
-  const [lastAction, setLastAction] = useState(null);
+  const [_reactions, setReactions] = useState({ bomDia: 0, prontos: 0 });
+  const [_lastAction, setLastAction] = useState(null);
 
   const addReaction = (type) => {
     sounds.playTone(type === 'bomDia' ? 523.25 : 659.25, 'triangle', 0.15);
@@ -23,7 +23,7 @@ export default function Slide1Welcome() {
           </div>
           <div>
             <div className="text-xs uppercase tracking-wider font-extrabold text-indigo-400">
-              Matemática em Movimento — 9º Ano
+              Matemática em Movimento — 1º Ano
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
               Aula 08: Triângulos & Relações Métricas
@@ -82,47 +82,6 @@ export default function Slide1Welcome() {
 
         {/* Right Side: Interactive Chat Thermometer */}
         <div className="lg:col-span-5 flex flex-col gap-4">
-          <div className="bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5 text-indigo-400" />
-                <h3 className="font-bold text-base text-white">Termômetro da Turma</h3>
-              </div>
-              <span className="text-xs px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                Interativo
-              </span>
-            </div>
-
-            <p className="text-xs sm:text-sm text-slate-300 mb-5">
-              Envie seu Bom Dia e confirme no chat que seu caderno está aberto!
-            </p>
-
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => addReaction('bomDia')}
-                className="group p-4 rounded-2xl bg-slate-800/80 hover:bg-indigo-600/30 border border-slate-700/80 hover:border-indigo-500 transition-all flex flex-col items-center justify-center text-center relative overflow-hidden"
-              >
-                <Heart className="w-6 h-6 text-rose-400 mb-1 group-hover:scale-125 transition-transform" />
-                <span className="text-xs font-semibold text-slate-200">Bom Dia no Chat!</span>
-                <span className="text-2xl font-black text-rose-400 mt-1">{reactions.bomDia}</span>
-              </button>
-
-              <button
-                onClick={() => addReaction('prontos')}
-                className="group p-4 rounded-2xl bg-slate-800/80 hover:bg-amber-600/30 border border-slate-700/80 hover:border-amber-500 transition-all flex flex-col items-center justify-center text-center relative overflow-hidden"
-              >
-                <Flame className="w-6 h-6 text-amber-400 mb-1 group-hover:scale-125 transition-transform" />
-                <span className="text-xs font-semibold text-slate-200">Caderno Aberto!</span>
-                <span className="text-2xl font-black text-amber-400 mt-1">{reactions.prontos}</span>
-              </button>
-            </div>
-
-            {lastAction && (
-              <div className="mt-4 text-center text-xs text-emerald-400 font-semibold animate-bounce">
-                ✨ +1 Presença / Participação registrada!
-              </div>
-            )}
-          </div>
 
           {/* Quick Schedule Capsule */}
           <div className="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs text-slate-400">

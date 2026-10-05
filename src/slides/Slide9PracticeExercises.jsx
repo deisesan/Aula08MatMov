@@ -2,41 +2,38 @@ import React, { useState, useEffect } from 'react';
 import MathView from '../components/MathView';
 import { Pencil, Timer, Play, Pause, RotateCcw, Lightbulb, CheckCircle2, MessageSquare, Award } from 'lucide-react';
 import { sounds } from '../utils/audio';
+import { timerManager } from '../utils/timerManager';
 
 export default function Slide9PracticeExercises() {
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes (300 seconds)
-  const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const DEFAULT_SECONDS = 300; // 5 minutes
+  const TIMER_ID = 'slide9_practice';
+
+  const [timerState, setTimerState] = useState(() =>
+    timerManager.getTimer(TIMER_ID, DEFAULT_SECONDS, 'Prática no Caderno', 'bell')
+  );
   const [showHintQ1, setShowHintQ1] = useState(false);
   const [showAnswerQ1, setShowAnswerQ1] = useState(false);
   const [showHintQ2, setShowHintQ2] = useState(false);
   const [showAnswerQ2, setShowAnswerQ2] = useState(false);
 
   useEffect(() => {
-    let interval = null;
-    if (isTimerRunning && timeLeft > 0) {
-      interval = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(interval);
-            setIsTimerRunning(false);
-            sounds.playBell();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isTimerRunning, timeLeft]);
+    const unsub = timerManager.subscribe((allTimers) => {
+      if (allTimers[TIMER_ID]) {
+        setTimerState({ ...allTimers[TIMER_ID] });
+      }
+    });
+    return () => unsub();
+  }, []);
+
+  const isTimerRunning = timerState.isRunning;
+  const timeLeft = timerState.remainingSeconds;
 
   const toggleTimer = () => {
-    setIsTimerRunning(!isTimerRunning);
-    sounds.playTone(isTimerRunning ? 400 : 700, 'sine', 0.15);
+    timerManager.toggle(TIMER_ID, DEFAULT_SECONDS, 'Prática no Caderno', 'bell');
   };
 
   const resetTimer = () => {
-    setIsTimerRunning(false);
-    setTimeLeft(300);
+    timerManager.reset(TIMER_ID, DEFAULT_SECONDS);
   };
 
   const minutes = Math.floor(timeLeft / 60);

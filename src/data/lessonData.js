@@ -114,4 +114,14 @@ export const SLIDES_DATA = [
     pedagogicalTip: "Fechar a aula pontualmente às 11:30 respeita a grade e consolida a sensação de missão cumprida.",
     habilities: "Fechamento e Engajamento",
   },
+  {
+    id: 11,
+    title: "Material da Lição de Casa Oficial",
+    time: "11:25 - 11:30",
+    duration: "5 min",
+    speakerScript: "Aqui está a folha oficial da lição de casa com as 3 questões estruturadas. Vocês podem baixar o PDF em alta resolução, copiar para o caderno ou resolver agora comigo na lousa digital!",
+    chatPrompt: "Quem já copiou ou baixou o PDF da lição? Deixem um 'OK' no chat!",
+    pedagogicalTip: "Projetar a folha de lição de casa exatamente como o PDF impresso elimina dúvidas sobre formato e exercícios.",
+    habilities: "Fixação e Consolidação (Capítulo 6)",
+  },
 ];

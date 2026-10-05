@@ -1,44 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Pause, RotateCcw, Plus, Coffee, Droplets, Eye, Bell, Sparkles } from 'lucide-react';
-import { sounds } from '../utils/audio';
+import { timerManager } from '../utils/timerManager';
 
 export default function Slide6BreakTimer() {
   const DEFAULT_SECONDS = 600; // 10 minutes
-  const [timeLeft, setTimeLeft] = useState(DEFAULT_SECONDS);
-  const [isRunning, setIsRunning] = useState(false);
+  const TIMER_ID = 'slide6_break';
+
+  const [timerState, setTimerState] = useState(() =>
+    timerManager.getTimer(TIMER_ID, DEFAULT_SECONDS, 'Intervalo Pedagógico', 'alarm')
+  );
 
   useEffect(() => {
-    let timer = null;
-    if (isRunning && timeLeft > 0) {
-      timer = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            setIsRunning(false);
-            sounds.playAlarm();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(timer);
-  }, [isRunning, timeLeft]);
+    const unsub = timerManager.subscribe((allTimers) => {
+      if (allTimers[TIMER_ID]) {
+        setTimerState({ ...allTimers[TIMER_ID] });
+      }
+    });
+    return () => unsub();
+  }, []);
+
+  const isRunning = timerState.isRunning;
+  const timeLeft = timerState.remainingSeconds;
 
   const toggleTimer = () => {
-    setIsRunning(!isRunning);
-    sounds.playTone(isRunning ? 400 : 800, 'sine', 0.15);
+    timerManager.toggle(TIMER_ID, DEFAULT_SECONDS, 'Intervalo Pedagógico', 'alarm');
   };
 
   const resetTimer = () => {
-    setIsRunning(false);
-    setTimeLeft(DEFAULT_SECONDS);
-    sounds.playTone(500, 'sine', 0.15);
+    timerManager.reset(TIMER_ID, DEFAULT_SECONDS);
   };
 
   const addTime = (seconds) => {
-    setTimeLeft((prev) => prev + seconds);
-    sounds.playTone(700, 'sine', 0.1);
+    timerManager.addSeconds(TIMER_ID, seconds);
   };
 
   const minutes = Math.floor(timeLeft / 60);

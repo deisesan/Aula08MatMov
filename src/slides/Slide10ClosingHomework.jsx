@@ -3,7 +3,7 @@ import confetti from 'canvas-confetti';
 import { Trophy, BookCheck, Camera, HelpCircle, ArrowRight, Sparkles, CheckSquare, Square } from 'lucide-react';
 import { sounds } from '../utils/audio';
 
-export default function Slide10ClosingHomework() {
+export default function Slide10ClosingHomework({ onViewHomeworkMaterial }) {
   const [checklist, setChecklist] = useState({
     participacao: true,
     licao: false,
@@ -68,7 +68,7 @@ export default function Slide10ClosingHomework() {
           <div className="p-3 rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 shrink-0">
             <BookCheck className="w-6 h-6" />
           </div>
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 flex-1">
             <span className="text-xs font-extrabold uppercase tracking-wider text-indigo-400">
               Tarefa Obrigatória
             </span>
@@ -76,6 +76,24 @@ export default function Slide10ClosingHomework() {
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Fazer os exercícios de fixação sobre Pitágoras e Relações Métricas na apostila. Pratiquem para automatizar o reconhecimento das fórmulas!
             </p>
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {onViewHomeworkMaterial && (
+                <button
+                  onClick={onViewHomeworkMaterial}
+                  className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md shadow-indigo-600/20"
+                >
+                  <BookCheck className="w-3.5 h-3.5" />
+                  <span>Ver Material do Slide</span>
+                </button>
+              )}
+              <a
+                href="/Licao_de_Casa_Aula_08_MatMov.pdf"
+                download="Licao_de_Casa_Aula_08_MatMov.pdf"
+                className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 hover:text-amber-300 text-xs font-bold transition flex items-center gap-1.5 border border-slate-700"
+              >
+                <span>📥 Baixar PDF Oficial</span>
+              </a>
+            </div>
           </div>
         </div>
 
